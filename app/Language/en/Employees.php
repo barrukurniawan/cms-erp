@@ -163,7 +163,7 @@ return [
 	'xin_document_file' => 'Document File',
 	'xin_document_eg_payslip_etc' => 'Eg. Payslip',
 	'xin_add_document' => 'Add Document',
-	'xin_e_details_d_type_file' => "Upload files only: png, jpg, jpeg, gif, txt, pdf, xls, xlsx, doc, docx",
+	'xin_e_details_d_type_file' => "Upload files only: pdf, png, jpg, jpeg, gif, txt, pdf, xls, xlsx, doc, docx",
 	'xin_payroll_net_salary' => 'Net Salary',
 	'xin_notice_date' => 'Notice Date',
 	'xin_resignation_date' => 'Resignation Date',

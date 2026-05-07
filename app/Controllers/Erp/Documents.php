@@ -262,10 +262,9 @@ class Documents extends BaseController {
 					]
 				],
 				'document_file' => [
-					'rules'  => 'uploaded[document_file]|mime_in[document_file,image/jpg,image/jpeg,image/gif,image/png,application/pdf]|max_size[document_file,10240]',
+					'rules'  => 'uploaded[document_file]|max_size[document_file,10240]|mime_in[document_file,application/pdf,application/force-download,application/x-download,application/x-pdf,application/octet-stream,image/png,image/jpg,image/jpeg,image/gif,text/plain,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document]',
 					'errors' => [
-						'uploaded' => lang('Main.xin_error_field_text'),
-						'mime_in' => 'wrong size'
+						'uploaded' => lang('Main.xin_error_field_text')
 					]
 				]
 			];
@@ -284,11 +283,17 @@ class Documents extends BaseController {
 				}
 			} else {
 				// upload file
-				//$document_file = $this->request->getFile('document_file');
-				//$file_name = $document_file->getName();
-				//$document_file->move('public/uploads/system_documents/');
-
 				$document_file = $this->request->getFile('document_file');
+				$file_ext = $document_file->getClientExtension();
+				if ($file_ext === '' || $file_ext === null) {
+					$file_ext = $document_file->getExtension();
+				}
+				$allowed_exts = ['pdf', 'png', 'jpg', 'jpeg', 'gif', 'txt', 'xls', 'xlsx', 'doc', 'docx'];
+				if(!in_array(strtolower($file_ext), $allowed_exts)) {
+					$Return['error'] = 'Invalid file extension. Allowed: pdf, png, jpg, jpeg, gif, txt, xls, xlsx, doc, docx';
+					$this->output($Return);
+					exit;
+				}
 				$original_name = $document_file->getName();
 				// $document_file->move('public/uploads/system_documents/');
 				
@@ -381,10 +386,9 @@ class Documents extends BaseController {
 					]
 				],
 				'document_file' => [
-					'rules'  => 'uploaded[document_file]|mime_in[document_file,image/jpg,image/jpeg,image/gif,image/png,application/pdf]|max_size[document_file,10240]',
+					'rules'  => 'uploaded[document_file]|max_size[document_file,10240]|mime_in[document_file,application/pdf,application/force-download,application/x-download,application/x-pdf,application/octet-stream,image/png,image/jpg,image/jpeg,image/gif,text/plain,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document]',
 					'errors' => [
-						'uploaded' => lang('Main.xin_error_field_text'),
-						'mime_in' => 'wrong size'
+						'uploaded' => lang('Main.xin_error_field_text')
 					]
 				]
 			];
@@ -405,6 +409,16 @@ class Documents extends BaseController {
 			} else {
 				// upload file
 				$document_file = $this->request->getFile('document_file');
+				$file_ext = $document_file->getClientExtension();
+				if ($file_ext === '' || $file_ext === null) {
+					$file_ext = $document_file->getExtension();
+				}
+				$allowed_exts = ['pdf', 'png', 'jpg', 'jpeg', 'gif', 'txt', 'xls', 'xlsx', 'doc', 'docx'];
+				if(!in_array(strtolower($file_ext), $allowed_exts)) {
+					$Return['error'] = 'Invalid file extension. Allowed: pdf, png, jpg, jpeg, gif, txt, xls, xlsx, doc, docx';
+					$this->output($Return);
+					exit;
+				}
 				$file_name = $document_file->getName();
 				$document_file->move('public/uploads/official_documents/');
 				
@@ -502,17 +516,26 @@ class Documents extends BaseController {
 				}
 			} else {
 				// upload file
-				 $validated = $this->validate([
+				$validated = $this->validate([
 					'document_file' => [
-						'rules'  => 'uploaded[document_file]|mime_in[document_file,image/jpg,image/jpeg,image/gif,image/png,application/pdf]|max_size[document_file,10240]',
+						'rules'  => 'uploaded[document_file]|max_size[document_file,10240]|mime_in[document_file,application/pdf,application/force-download,application/x-download,application/x-pdf,application/octet-stream,image/png,image/jpg,image/jpeg,image/gif,text/plain,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document]',
 						'errors' => [
-							'uploaded' => lang('Main.xin_error_field_text'),
-							'mime_in' => 'wrong size'
+							'uploaded' => lang('Main.xin_error_field_text')
 						]
 					]
 				]);
 				if ($validated) {
 					$document_file = $this->request->getFile('document_file');
+					$file_ext = $document_file->getClientExtension();
+					if ($file_ext === '' || $file_ext === null) {
+						$file_ext = $document_file->getExtension();
+					}
+					$allowed_exts = ['pdf', 'png', 'jpg', 'jpeg', 'gif', 'txt', 'xls', 'xlsx', 'doc', 'docx'];
+					if(!in_array(strtolower($file_ext), $allowed_exts)) {
+						$Return['error'] = 'Invalid file extension. Allowed: pdf, png, jpg, jpeg, gif, txt, xls, xlsx, doc, docx';
+						$this->output($Return);
+						exit;
+					}
 					$file_name = $document_file->getName();
 					$document_file->move('public/uploads/official_documents/');
 				}

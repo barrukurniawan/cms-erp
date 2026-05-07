@@ -85,8 +85,15 @@ class Download extends BaseController {
 		if($type) {
 			//Set the time out
 			set_time_limit(0);
-			$data = file_get_contents(base_url().'/public/uploads/'.$type.'/'.udecode($this->request->getGet('filename')));
-			$this->force_download(udecode($this->request->getGet('filename')), $data);
+			$filename = udecode($this->request->getGet('filename'));
+			$file_path = ROOTPATH . 'public/uploads/'.$type.'/'.$filename;
+			if (file_exists($file_path)) {
+				$data = file_get_contents($file_path);
+				$this->force_download($filename, $data);
+			} else {
+				// Handle missing file
+				echo "File not found.";
+			}
 		}
 	}
 }

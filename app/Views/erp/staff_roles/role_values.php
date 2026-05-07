@@ -561,12 +561,14 @@ $user_info = $UsersModel->where('user_id', $usession['sup_user_id'])->first();
 	{ id: "", class: "role-checkbox custom-control-input input-light-primary", text: "<?= lang('Main.xin_add');?>", value: "file2",},
 	{ id: "", class: "role-checkbox custom-control-input input-light-primary", text: "<?= lang('Main.xin_edit');?>", value: "file3",},
 	{ id: "", class: "role-checkbox custom-control-input input-light-primary", text: "<?= lang('Main.xin_delete');?>", value: "file4",},
+	{ id: "", class: "role-checkbox custom-control-input input-light-primary", text: "<?= lang('Main.xin_view');?>", value: "file5",},
 	]},
 	{ id: "", class: "role-checkbox custom-control-input input-light-primary", text: "<?= lang('Employees.xin_official_documents');?>", value: "officialfile1",items: [
 	{ id: "", class: "role-checkbox custom-control-input input-light-primary", text: "<?= lang('Main.xin_role_enable');?>", value: "officialfile1",},
 	{ id: "", class: "role-checkbox custom-control-input input-light-primary", text: "<?= lang('Main.xin_add');?>", value: "officialfile2",},
 	{ id: "", class: "role-checkbox custom-control-input input-light-primary", text: "<?= lang('Main.xin_edit');?>", value: "officialfile3",},
 	{ id: "", class: "role-checkbox custom-control-input input-light-primary", text: "<?= lang('Main.xin_delete');?>", value: "officialfile4",},
+	{ id: "", class: "role-checkbox custom-control-input input-light-primary", text: "<?= lang('Main.xin_view');?>", value: "officialfile5",},
 	]},
 	]},
 	

@@ -731,12 +731,14 @@ $(document).ready(function(){
 	{ id: "", class: "role-checkbox-modal custom-control-input input-light-primary", text: "<?= lang('Main.xin_add');?>", value: "file2", check: "<?php if(isset($role_id)) { if(in_array('file2',$role_resources_ids)): echo 'checked'; else: echo ''; endif; }?>",},
 	{ id: "", class: "role-checkbox-modal custom-control-input input-light-primary", text: "<?= lang('Main.xin_edit');?>", value: "file3", check: "<?php if(isset($role_id)) { if(in_array('file3',$role_resources_ids)): echo 'checked'; else: echo ''; endif; }?>",},
 	{ id: "", class: "role-checkbox-modal custom-control-input input-light-primary", text: "<?= lang('Main.xin_delete');?>", value: "file4", check: "<?php if(isset($role_id)) { if(in_array('file4',$role_resources_ids)): echo 'checked'; else: echo ''; endif; }?>",},
+	{ id: "", class: "role-checkbox-modal custom-control-input input-light-primary", text: "<?= lang('Main.xin_view');?>", value: "file5", check: "<?php if(isset($role_id)) { if(in_array('file5',$role_resources_ids)): echo 'checked'; else: echo ''; endif; }?>",},
 	]},
 	{ id: "", class: "role-checkbox-modal custom-control-input input-light-primary", text: "<?= lang('Employees.xin_official_documents');?>", value: "officialfile1", check: "<?php if(isset($role_id)) { if(in_array('officialfile1',$role_resources_ids)): echo 'checked'; else: echo ''; endif; }?>", items: [
 	{ id: "", class: "role-checkbox-modal custom-control-input input-light-primary", text: "<?= lang('Main.xin_role_enable');?>", value: "officialfile1", check: "<?php if(isset($role_id)) { if(in_array('officialfile1',$role_resources_ids)): echo 'checked'; else: echo ''; endif; }?>",},
 	{ id: "", class: "role-checkbox-modal custom-control-input input-light-primary", text: "<?= lang('Main.xin_add');?>", value: "officialfile2", check: "<?php if(isset($role_id)) { if(in_array('officialfile2',$role_resources_ids)): echo 'checked'; else: echo ''; endif; }?>",},
 	{ id: "", class: "role-checkbox-modal custom-control-input input-light-primary", text: "<?= lang('Main.xin_edit');?>", value: "officialfile3", check: "<?php if(isset($role_id)) { if(in_array('officialfile3',$role_resources_ids)): echo 'checked'; else: echo ''; endif; }?>",},
 	{ id: "", class: "role-checkbox-modal custom-control-input input-light-primary", text: "<?= lang('Main.xin_delete');?>", value: "officialfile4", check: "<?php if(isset($role_id)) { if(in_array('officialfile4',$role_resources_ids)): echo 'checked'; else: echo ''; endif; }?>",},
+	{ id: "", class: "role-checkbox-modal custom-control-input input-light-primary", text: "<?= lang('Main.xin_view');?>", value: "officialfile5", check: "<?php if(isset($role_id)) { if(in_array('officialfile5',$role_resources_ids)): echo 'checked'; else: echo ''; endif; }?>",},
 	]},
 	]},
 	

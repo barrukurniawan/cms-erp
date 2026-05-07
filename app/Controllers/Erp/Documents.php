@@ -135,7 +135,11 @@ class Documents extends BaseController {
 			}
 		
 			$combhr = $edit.$delete;
-			$download_link = '<a href="'.site_url().'download?type=system_documents&filename='.uencode($r['document_file']).'">'.lang('Main.xin_download').'</a>';
+			if($user_info['user_type'] != 'company' && in_array('file5', staff_role_resource())) {
+				$download_link = '<a href="'.site_url().'erp/documents/view_pdf/system_documents/'.uencode($r['document_file']).'#toolbar=0" target="_blank">'.lang('Main.xin_view').'</a>';
+			} else {
+				$download_link = '<a href="'.site_url().'download?type=system_documents&filename='.uencode($r['document_file']).'">'.lang('Main.xin_download').'</a>';
+			}
 			$department = $DepartmentModel->where('department_id', $r['department_id'])->first();
 			if($department){
 				$idepartment_name = $department['department_name'];
@@ -202,7 +206,11 @@ class Documents extends BaseController {
 			}
 			
 			$combhr = $edit.$delete;
-			$download_link = '<a href="'.site_url().'download?type=official_documents&filename='.uencode($r['document_file']).'">'.lang('Main.xin_download').'</a>';
+			if($user_info['user_type'] != 'company' && in_array('officialfile5', staff_role_resource())) {
+				$download_link = '<a href="'.site_url().'erp/documents/view_pdf/official_documents/'.uencode($r['document_file']).'#toolbar=0" target="_blank">'.lang('Main.xin_view').'</a>';
+			} else {
+				$download_link = '<a href="'.site_url().'download?type=official_documents&filename='.uencode($r['document_file']).'">'.lang('Main.xin_download').'</a>';
+			}
 			if(in_array('officialfile3',staff_role_resource()) || in_array('officialfile4',staff_role_resource()) || $user_info['user_type'] == 'company') {
 					$document_type = '
 					'.$r['document_type'].'
@@ -724,6 +732,41 @@ class Documents extends BaseController {
 			}
 			$this->output($Return);
 			exit;
+		}
+	}
+
+
+	public function view_pdf($type, $filename) {
+		$session = \Config\Services::session();
+		if(!$session->has('sup_username')){ 
+			return redirect()->to(site_url('erp/login'));
+		}
+		
+		$filename = udecode($filename);
+		$path = ROOTPATH . 'public/uploads/' . $type . '/' . $filename;
+		
+		if (file_exists($path)) {
+			$ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+			if ($ext == 'pdf') {
+				header('Content-Type: application/pdf');
+				header('Content-Disposition: inline; filename="' . basename($path) . '"');
+				header('Cache-Control: private, max-age=0, must-revalidate');
+				header('Pragma: public');
+				readfile($path);
+				exit;
+			} else {
+				if(function_exists('mime_content_type')) {
+					$mime = mime_content_type($path);
+				} else {
+					$mime = 'application/octet-stream';
+				}
+				header('Content-Type: ' . $mime);
+				header('Content-Disposition: inline; filename="' . basename($path) . '"');
+				readfile($path);
+				exit;
+			}
+		} else {
+			die('File not found');
 		}
 	}
 }

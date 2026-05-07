@@ -104,7 +104,7 @@ $cmodule_attributes = $Moduleattributes->where('company_id',$company_id)->where(
         <li class="list-group-item"> <span class="f-w-500"><i class="feather icon-user m-r-10"></i>
           <?= lang('Employees.xin_manager');?>
           <i class="fas fa-question-circle" data-toggle="tooltip" title="Department Head"></i></span> <a href="#" class="float-right text-body">
-          <?= $dep_user['first_name'].' '.$dep_user['last_name']; ?>
+          <?= $dep_user ? $dep_user['first_name'].' '.$dep_user['last_name'] : '-'; ?>
           </a> </li>
         <li class="list-group-item border-bottom-0"> <span class="f-w-500"><i class="feather icon-mail m-r-10"></i>
           <?= lang('Main.xin_email');?>

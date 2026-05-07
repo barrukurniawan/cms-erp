@@ -492,7 +492,7 @@ class Finance extends BaseController {
 			$view = '<span data-toggle="tooltip" data-placement="top" data-state="primary" title="'.lang('Main.xin_view_details').'"><a href="'.site_url('erp/transaction-details').'/'.uencode($r['transaction_id']).'" target="_blank"><button type="button" class="btn icon-btn btn-sm btn-light-primary waves-effect waves-light"><i class="feather icon-arrow-right"></i></button></a></span>';
 			$combhr = $view.$edit.$delete;
 			$iaccount_name = '
-			'.$iaccounts['account_name'].'
+			'.$account_name.'
 			<div class="overlay-edit">
 				'.$combhr.'
 			</div>';

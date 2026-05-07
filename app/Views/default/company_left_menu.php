@@ -68,6 +68,12 @@ $setup_modules = unserialize($xin_com_system['setup_modules']);
         <?php endif; endif;?>
     </ul>
   </li>
+  <!-- Documents Manager -->
+  <?php if(in_array('file1',staff_role_resource()) || $user_info['user_type']== 'company') { ?>
+  <li class="pc-item"> <a href="<?= site_url('erp/upload-files');?>" class="pc-link"><span class="pc-micon"><i data-feather="folder"></i></span><span class="pc-mtext">
+    <?= lang('Dashboard.xin_upload_files');?>
+    </span> </a> </li>
+  <?php } ?>
   <!-- Attendance -->
   <li class="pc-item pc-hasmenu <?php if(!empty($arr_mod['attendance_open']))echo $arr_mod['attendance_open'];?>"> <a href="#" class="pc-link sidenav-toggle"><span class="pc-micon"><i data-feather="clock"></i></span><span class="pc-mtext">
     <?= lang('Dashboard.left_attendance');?>

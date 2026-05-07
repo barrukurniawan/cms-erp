@@ -31,7 +31,9 @@ class Logout extends BaseController
 			'is_logged_in' => '0',
 			'last_logout_date' => date('d-m-Y H:i:s')
 		); 
-		$UsersModel->update($usession['sup_user_id'], $last_data);
+		if($usession && isset($usession['sup_user_id'])) {
+			$UsersModel->update($usession['sup_user_id'], $last_data);
+		}
 		// Removing session data
 		$session->destroy();
 		$Return['result'] = 'Successfully Logout.';

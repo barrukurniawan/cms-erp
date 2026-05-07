@@ -247,6 +247,7 @@ class Clients extends BaseController {
 				$gender = lang('Main.xin_gender_female');
 			}
 			$country_info = $CountryModel->where('country_id', $r['country'])->first();
+			$country_name = $country_info ? $country_info['country_name'] : '-';
 			$name = $r['first_name'].' '.$r['last_name'];
 			$uname = '<div class="d-inline-block align-middle">
 				<img src="'.base_url().'/public/uploads/clients/thumb/'.$r['profile_photo'].'" alt="user image" class="img-radius align-top m-r-15" style="width:40px;">
@@ -274,7 +275,7 @@ class Clients extends BaseController {
 				$r['username'],
 				$r['contact_number'],
 				$gender,
-				$country_info['country_name'],
+				$country_name,
 				$status
 			);
 		}
@@ -348,6 +349,7 @@ class Clients extends BaseController {
 				$gender = lang('Main.xin_gender_female');
 			}
 			$country_info = $CountryModel->where('country_id', $r['country'])->first();
+			$country_name = $country_info ? $country_info['country_name'] : '-';
 			$name = $r['first_name'].' '.$r['last_name'];
 			$uname = '<div class="d-inline-block align-middle">
 				<img src="'.base_url().'/public/uploads/clients/thumb/'.$r['profile_photo'].'" alt="user image" class="img-radius align-top m-r-15" style="width:40px;">
@@ -374,7 +376,7 @@ class Clients extends BaseController {
 				$links,
 				$r['contact_number'],
 				$gender,
-				$country_info['country_name'],
+				$country_name,
 				$status
 			);
 		}

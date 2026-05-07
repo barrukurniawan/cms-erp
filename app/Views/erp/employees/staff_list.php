@@ -33,7 +33,7 @@ if($user_info['user_type'] == 'staff'){
 }
 		
 
-$xin_system = $SystemModel->where('setting_id', 1)->first();
+$xin_system = erp_company_settings();
 $employee_id = generate_random_employeeid();
 $get_animate='';
 ?>

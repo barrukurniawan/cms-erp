@@ -641,6 +641,8 @@ class Payroll extends BaseController {
 				$user_detail = $UsersModel->where('user_id', $r['staff_id'])->first();
 				$wages_type = lang('Membership.xin_per_month');
 				
+				if(!$user_detail) { continue; } // skip if staff user was deleted
+				
 				$name = $user_detail['first_name'].' '.$user_detail['last_name'];
 				$uname = '<div class="d-inline-block align-middle">
 					<img src="'.base_url().'/public/uploads/users/thumb/'.$user_detail['profile_photo'].'" alt="user image" class="img-radius align-top m-r-15" style="width:40px;">

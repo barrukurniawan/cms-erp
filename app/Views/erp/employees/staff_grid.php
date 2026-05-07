@@ -39,7 +39,7 @@ if($user_info['user_type'] == 'staff'){
 }
 
 $roles = $RolesModel->orderBy('role_id', 'ASC')->findAll();
-$xin_system = $SystemModel->where('setting_id', 1)->first();
+$xin_system = erp_company_settings();
 $get_animate = '';
 $employee_id = generate_random_employeeid();
 ?>

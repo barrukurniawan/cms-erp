@@ -209,7 +209,7 @@ class Employees extends BaseController {
 				}
     		
             $role = $RolesModel->where('role_id', $r['user_role_id'])->first();
-			if($role['role_name']){
+			if(!is_null($role) && $role['role_name']){
 				$role_name = $role['role_name'];
 			} else {
 				$role_name = '--';

@@ -282,8 +282,8 @@ class Crm extends BaseController {
 			$data[] = array(
 				$uname,
 				$r['contact_number'],
-				$role['role_name'],
-				$country_info['country_name'],
+				(!is_null($role) ? $role['role_name'] : '--'),
+				(!is_null($country_info) ? $country_info['country_name'] : '--'),
 				$links
 			);
 		}
@@ -340,8 +340,8 @@ class Crm extends BaseController {
 			$data[] = array(
 				$uname,
 				$r['contact_number'],
-				$role['role_name'],
-				$country_info['country_name'],
+				(!is_null($role) ? $role['role_name'] : '--'),
+				(!is_null($country_info) ? $country_info['country_name'] : '--'),
 				$links
 			);
 		}

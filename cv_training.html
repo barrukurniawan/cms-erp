@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Record - ERYK WAHYU DARMAWAN</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            background: #6a6a6a;
+            padding: 20px;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: #fff;
+            margin: auto auto 20px;
+            padding: 8mm;
+            position: relative;
+            border: 2px solid #000;
+            box-shadow: 0 0 8px rgba(0, 0, 0, .35);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+
+        /* =========================
+       HEADER
+    ========================== */
+
+        .header {
+            position: relative;
+            border: 1.5px solid #000;
+            padding: 10px 15px;
+            min-height: 62px;
+            margin-bottom: 12px;
+        }
+
+        .logo {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 120px;
+        }
+
+        .header-text {
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            color: #16345f;
+            letter-spacing: 1px;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        /* =========================
+       SECTION GREY
+    ========================== */
+
+        .section-header-grey {
+            background: #9d9d9d;
+            color: white;
+            border: 1px solid #000;
+            text-align: center;
+            font-weight: bold;
+            font-size: 11px;
+            padding: 4px;
+            letter-spacing: .5px;
+
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* =========================
+       PERSONAL SECTION
+    ========================== */
+
+        .info-section {
+            display: flex;
+            gap: 10px;
+            border-left: 1px solid #000;
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+            padding: 8px;
+            margin-bottom: 14px;
+        }
+
+        .info-table {
+            width: 76%;
+            border-collapse: collapse;
+        }
+
+        .info-table td {
+            padding: 1px 0;
+            vertical-align: top;
+            line-height: 1.25;
+        }
+
+        .info-table .num {
+            width: 18px;
+        }
+
+        .info-table .label {
+            width: 145px;
+            font-weight: bold;
+        }
+
+        .info-table .colon {
+            width: 10px;
+        }
+
+        /* =========================
+       PHOTO AREA
+    ========================== */
+
+        .right-column {
+            width: 24%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .photo-wrapper {
+            border: 1px solid #000;
+            padding: 5px;
+            width: 100%;
+        }
+
+        .photo-img {
+            width: 100%;
+            height: 145px;
+            object-fit: cover;
+            border: 2px solid #7b7b7b;
+            background: #b10000;
+        }
+
+        .physical-table {
+            width: 100%;
+            margin-top: 8px;
+            border-collapse: collapse;
+            font-size: 9px;
+        }
+
+        .physical-table td {
+            border: 1px solid #000;
+            padding: 3px 4px;
+        }
+
+        /* =========================
+       EDUCATION
+    ========================== */
+
+        .education-wrapper {
+            margin-top: 10px;
+        }
+
+        .education-content {
+            border-left: 1px solid #000;
+            border-right: 1px solid #000;
+            padding: 8px 10px 4px;
+        }
+
+        .ed-row {
+            display: flex;
+            margin-bottom: 5px;
+        }
+
+        .ed-num {
+            width: 20px;
+        }
+
+        .ed-text {
+            flex: 1;
+        }
+
+        .ed-title {
+            font-weight: bold;
+        }
+
+        .ed-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4px;
+            font-size: 9px;
+        }
+
+        /* =========================
+       TABLE
+    ========================== */
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            font-size: 7px;
+        }
+
+        .data-table th,
+        .data-table td {
+            border: 1px solid #000;
+            padding: 3px 2px;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .data-table th {
+            background: #d8d8d8;
+            font-weight: bold;
+
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .data-table td.left-align {
+            text-align: left;
+            padding-left: 5px;
+        }
+
+        /* =========================
+       SECTION TITLE
+    ========================== */
+
+        .section-title {
+            border: 1px solid #000;
+            background: #d9d9d9;
+            text-align: center;
+            font-weight: bold;
+            padding: 4px;
+            margin-bottom: 10px;
+
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* =========================
+       LICENSE
+    ========================== */
+
+        .license-section {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .license-col {
+            display: flex;
+        }
+
+        .license-box {
+            border: 1px solid #000;
+            padding: 8px;
+            width: 100%;
+        }
+
+        .license-box h3 {
+            text-align: center;
+            font-size: 11px;
+            margin-bottom: 8px;
+            text-decoration: underline;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 70px 10px auto;
+            row-gap: 3px;
+            font-size: 9px;
+        }
+
+        /* =========================
+       SIGNATURE
+    ========================== */
+
+        .signature-section {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 60px;
+        }
+
+        .signature-box {
+            width: 250px;
+            text-align: center;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid #000;
+            margin-top: 45px;
+            margin-bottom: 5px;
+        }
+
+        /* =========================
+       PAGE NUMBER
+    ========================== */
+
+        .page-number {
+            position: absolute;
+            bottom: 8mm;
+            right: 10mm;
+            font-size: 9px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="header">
+            <img src="https://gis.globalmaintenance.co.id/public/uploads/logo/other/GMF Logo 2021.png" alt="GMF Logo"
+                class="logo">
+            <div class="header-text">
+                <h1>TRAINING RECORD</h1>
+            </div>
+        </div>
+
+        <div class="section-header-grey">PERSONAL</div>
+
+        <div class="info-section">
+            <table class="info-table">
+                <tr>
+                    <td class="num">1.</td>
+                    <td class="label">NAME</td>
+                    <td class="colon">:</td>
+                    <td>ERYK WAHYU DARMAWAN</td>
+                </tr>
+                <tr>
+                    <td class="num">2.</td>
+                    <td class="label">JOB TITTLE</td>
+                    <td class="colon">:</td>
+                    <td>MAINTENANCE MANAGER</td>
+                </tr>
+                <tr>
+                    <td class="num">3.</td>
+                    <td class="label">EMPLOYEE NUMBER</td>
+                    <td class="colon">:</td>
+                    <td>10A015</td>
+                </tr>
+                <tr>
+                    <td class="num">4.</td>
+                    <td class="label">PLACE & DATE OF BIRTH</td>
+                    <td class="colon">:</td>
+                    <td>MAGETAN, MAY 18, 1985</td>
+                </tr>
+                <tr>
+                    <td class="num">5.</td>
+                    <td class="label">MARITAL STATUS</td>
+                    <td class="colon">:</td>
+                    <td>MARRIED</td>
+                </tr>
+                <tr>
+                    <td class="num">6.</td>
+                    <td class="label">RELIGION</td>
+                    <td class="colon">:</td>
+                    <td>MOSLEM</td>
+                </tr>
+                <tr>
+                    <td class="num">7.</td>
+                    <td class="label">ADDRESS</td>
+                    <td class="colon">:</td>
+                    <td>PERUM VILLA PAYUNG MAS, JL KP RAWA PANJANG RT 05 RW 23,<br>KEL. KAMPUNG PANJANG, KEC BOJONG
+                        GEDHE</td>
+                </tr>
+                <tr>
+                    <td class="num"></td>
+                    <td class="label">CITY/COUNTRY</td>
+                    <td class="colon">:</td>
+                    <td>BOGOR</td>
+                </tr>
+                <tr>
+                    <td class="num"></td>
+                    <td class="label">PHONE/HP</td>
+                    <td class="colon">:</td>
+                    <td>6281329424922</td>
+                </tr>
+                <tr>
+                    <td class="num">8.</td>
+                    <td class="label">PASSPORT NUMBER</td>
+                    <td class="colon">:</td>
+                    <td>N/A &nbsp;&nbsp;&nbsp;&nbsp; PLACE: N/A</td>
+                </tr>
+                <tr>
+                    <td class="num"></td>
+                    <td class="label">DATE OF ISSUED</td>
+                    <td class="colon">:</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td class="num"></td>
+                    <td class="label">DATE OF EXPIRED</td>
+                    <td class="colon">:</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td class="num">9.</td>
+                    <td class="label">KTP NUMBER</td>
+                    <td class="colon">:</td>
+                    <td>3311101805850000 &nbsp;&nbsp;&nbsp;&nbsp; PLACE: BOGOR</td>
+                </tr>
+                <tr>
+                    <td class="num"></td>
+                    <td class="label">DATE OF ISSUED</td>
+                    <td class="colon">:</td>
+                    <td>15-Jun-17</td>
+                </tr>
+                <tr>
+                    <td class="num"></td>
+                    <td class="label">DATE OF EXPIRED</td>
+                    <td class="colon">:</td>
+                    <td>NO VALIDITY</td>
+                </tr>
+                <tr>
+                    <td class="num">10.</td>
+                    <td class="label">NPWP NUMBER</td>
+                    <td class="colon">:</td>
+                    <td>34.381.077.6-532.000</td>
+                </tr>
+            </table>
+
+            <div class="right-column">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/3x4_Rosendo_da_Gravata.png" alt="Photo"
+                    class="photo-img">
+
+                <table class="physical-table">
+                    <tr>
+                        <td style="width: 75px;">BODY HEIGHT</td>
+                        <td>: 165 CM</td>
+                    </tr>
+                    <tr>
+                        <td>BODY WEIGHT</td>
+                        <td>: 70 KG</td>
+                    </tr>
+                    <tr>
+                        <td>BLOOD GROUP</td>
+                        <td>: O</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="education-wrapper">
+            <div class="section-header-grey" style="border-bottom: none;">EDUCATIONS / TRAINING</div>
+
+            <div class="education-content">
+                <div class="ed-row">
+                    <div class="ed-num">1.</div>
+                    <div class="ed-text">
+                        <div class="ed-title">HIGHEST FORMAL EDUCATION</div>
+                        <div class="ed-details">
+                            <div style="flex: 4.5;">INSTITUTE FOR AVIATION EDUCATION AND TRAINING TUTUKO-SURAKARTA</div>
+                            <div style="flex: 1; text-align: center;">GRADUATED</div>
+                            <div style="flex: 1; text-align: right; padding-right: 40px;">2008</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ed-row" style="margin-bottom: 2px;">
+                    <div class="ed-num">2.</div>
+                    <div class="ed-text">
+                        <div class="ed-title">AVIATION TRAINING</div>
+                    </div>
+                </div>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2" style="width: 3%;">NO</th>
+                        <th rowspan="2" style="width: 25%;">COURSE TITTLE</th>
+                        <th rowspan="2" style="width: 15%;">COURSE OBJECTIVE</th>
+                        <th colspan="2">DURATION</th>
+                        <th rowspan="2" style="width: 6%;">TOTAL<br>HOURS</th>
+                        <th rowspan="2" style="width: 8%;">TEST RESULT</th>
+                        <th rowspan="2" style="width: 10%;">LOCATION</th>
+                        <th rowspan="2" style="width: 12%;">CONDUCTED BY</th>
+                        <th rowspan="2" style="width: 10%;">INSTRUCTOR</th>
+                    </tr>
+                    <tr>
+                        <th style="width: 7%;">FROM</th>
+                        <th style="width: 7%;">TO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td class="left-align">AIRCRAFT GENERAL MAINTENANCE</td>
+                        <td></td>
+                        <td>15-Des-10</td>
+                        <td>31-Jan-10</td>
+                        <td>288</td>
+                        <td></td>
+                        <td>JAKARTA</td>
+                        <td>PT. IAT</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td class="left-align">IN HOUSE BORESCOPE XL VU TRAINING AND HANDS ON APPLICATION</td>
+                        <td></td>
+                        <td>10-Feb-11</td>
+                        <td>10-Feb-11</td>
+                        <td></td>
+                        <td></td>
+                        <td>JAKARTA</td>
+                        <td>PRATITA</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td class="left-align">BASIC INDOCTRINATION</td>
+                        <td></td>
+                        <td>11-Jan-11</td>
+                        <td>11-Jan-11</td>
+                        <td>2</td>
+                        <td></td>
+                        <td>JAKARTA</td>
+                        <td>PT. GLOBAL MF</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>04</td>
+                        <td class="left-align">INITIAL HUMAN FACTORS TRAINING</td>
+                        <td></td>
+                        <td>16-Feb-11</td>
+                        <td>18-Feb-11</td>
+                        <td>24</td>
+                        <td></td>
+                        <td>JAKARTA</td>
+                        <td>PT. GLOBAL MF</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>05</td>
+                        <td class="left-align">INITIAL TYPE RATING ATR 42-300 for ENGINEER</td>
+                        <td></td>
+                        <td>23-Feb-11</td>
+                        <td>24-Mar-11</td>
+                        <td>165</td>
+                        <td></td>
+                        <td>JAKARTA</td>
+                        <td>PT. GLOBAL MF</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="page-number">Page 1 of 2</div>
+    </div>
+
+    <div class="page">
+        <div class="header">
+            <img src="https://gis.globalmaintenance.co.id/public/uploads/logo/other/GMF Logo 2021.png" alt="GMF Logo"
+                class="logo">
+            <div class="header-text">
+                <h1>TRAINING RECORD</h1>
+            </div>
+        </div>
+
+        <div class="section-title">AME LICENCE / GENERAL LICENCE / AUTHORIZATION</div>
+
+        <div class="license-section">
+            <div class="license-col" style="flex: 1.2;">
+                <div class="license-box">
+                    <h3>GENERAL LICENCE</h3>
+                    <div class="grid-2col">
+                        <div>NO</div>
+                        <div>:</div>
+                        <div>6383</div>
+                        <div>EXPIRY</div>
+                        <div>:</div>
+                        <div>25-Okt-26</div>
+                    </div>
+                    <table class="data-table" style="margin-top: 10px;">
+                        <tr>
+                            <th>CAT</th>
+                            <th>EXAM NO</th>
+                            <th>APPL. NO</th>
+                            <th>DATE</th>
+                        </tr>
+                        <tr>
+                            <td>A1</td>
+                            <td>324</td>
+                            <td>007</td>
+                            <td>11-Jun-10</td>
+                        </tr>
+                        <tr>
+                            <td>A2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>A3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>A4</td>
+                            <td>304</td>
+                            <td>203</td>
+                            <td>11-Jun-10</td>
+                        </tr>
+                        <tr>
+                            <td>C1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>C2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>C4</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="license-col" style="flex: 1.8;">
+                <div class="license-box" style="height: 100%;">
+                    <h3>AUTHORIZATION</h3>
+                    <div class="grid-2col" style="margin-bottom: 10px;">
+                        <div>NO</div>
+                        <div>:</div>
+                        <div>004/GMF/24</div>
+                        <div>EXPIRY</div>
+                        <div>:</div>
+                        <div>03-Mar-25</div>
+                        <div>RATING</div>
+                        <div>:</div>
+                        <div></div>
+                    </div>
+                    <div style="font-weight: bold; margin-bottom: 5px;">A/C, ENGINE, TYPE OF INSPECTION:</div>
+                    <ul style="list-style-type: none; padding-left: 10px; line-height: 1.5;">
+                        <li>- ATR42-300 (P&W 120 SERIES)</li>
+                        <li>- ATR42-400/500/72-212A</li>
+                    </ul>
+
+                    <div style="margin-top: 15px;">
+                        <div style="font-weight: bold;">OTHERS:</div>
+                        <ul style="list-style-type: none; padding-left: 10px;">
+                            <li>COMA : NIL</li>
+                            <li>NO : NIL</li>
+                            <li>EXPIRY : NIL</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top: 30px;">WORKING EXPERIENCES / CAREER HISTORIES</div>
+        <table class="info-table" style="width: 100%; margin-top: 10px;">
+            <tr>
+                <td style="width: 25px;">1.</td>
+                <td style="width: 150px;">OUTSIDE Global MF</td>
+                <td style="width: 15px;">:</td>
+                <td>NIL</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>INSIDE Global MF</td>
+                <td>:</td>
+                <td>PT. Global Maintenance Facility (2010-Present)</td>
+            </tr>
+        </table>
+
+        <div class="signature-section">
+            <div class="signature-box">
+                <div>Quality Department</div>
+                <div class="signature-line"></div>
+                <div>Name of Employee: ..............................</div>
+                <div style="margin-top: 5px;">Date: ..............................</div>
+            </div>
+        </div>
+
+        <div class="page-number">Page 2 of 2</div>
+    </div>
+
+</body>
+
+</html>

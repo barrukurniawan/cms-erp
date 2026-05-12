@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Record</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            background-color: #525659;
+            display: flex;
+            justify-content: center;
+        }
+        .page-a4 {
+            width: 210mm;
+            height: 297mm;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            margin: 20px auto;
+            padding: 10mm;
+        }
+        .document-wrapper {
+            border: 1.5px solid black;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1.5px solid black;
+        }
+        .logo {
+            height: 55px; /* Sesuaikan ukuran logo */
+        }
+        .title {
+            flex-grow: 1;
+            text-align: center;
+            color: #002060; /* Dark blue */
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            padding-right: 120px; /* Untuk menengahkan text mempertimbangkan lebar logo */
+        }
+
+        /* Section Banner */
+        .section-banner {
+            background-color: #a6a6a6;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 13px;
+            padding: 4px 0;
+            border-bottom: 1.5px solid black;
+            text-transform: uppercase;
+        }
+
+        /* Main Grid */
+        .content-grid {
+            display: flex;
+            padding: 8px 10px;
+            border-bottom: 1.5px solid black;
+        }
+        
+        /* Table Styles */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .data-table td {
+            padding: 3px 0;
+            vertical-align: top;
+        }
+        .td-num { width: 22px; font-weight: bold; }
+        .td-label { width: 170px; font-weight: bold; }
+        .td-colon { width: 12px; }
+        .td-val { }
+
+        /* Photo Area */
+        .photo-area {
+            width: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding-right: 15px;
+            padding-top: 5px;
+        }
+        .photo-frame {
+            border: 6px solid #a6a6a6;
+            width: 110px;
+            height: 145px;
+            margin-bottom: 15px;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .phys-table {
+            font-size: 10px;
+            border-collapse: collapse;
+            width: 135px;
+        }
+        .phys-table td { padding: 2px 0; }
+        .phys-label { font-weight: bold; width: 85px; }
+
+        /* Work Experience */
+        .work-section {
+            padding: 10px 10px;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .work-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .work-table td { padding: 3px 0; vertical-align: top; }
+
+        /* Signature Area */
+        .signature-box {
+            position: absolute;
+            bottom: 30px;
+            left: 10px;
+            width: 100%;
+        }
+        .sig-text { margin-left: 70px; margin-bottom: 40px; font-size: 11px;}
+        .sig-line { border-bottom: 1px solid black; width: 230px; margin-left: 20px; margin-bottom: 5px; }
+        .sig-name { margin-left: 80px; font-weight: bold; text-decoration: underline; font-size: 11px;}
+        .sig-date { margin-top: 35px; margin-left: 10px; font-size: 11px;}
+        
+        .footer-text {
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+            font-size: 9px;
+        }
+
+        @media print {
+            body { background: none; }
+            .page-a4 { margin: 0; box-shadow: none; padding: 10mm; border: none; }
+            .document-wrapper { height: calc(297mm - 20mm); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-a4">
+        <div class="document-wrapper">
+            
+            <!-- HEADER -->
+            <div class="header">
+                <img src="https://gis.globalmaintenance.co.id/public/uploads/logo/other/GMF Logo 2021.png" alt="GMF Logo" class="logo">
+                <h1 class="title">TRAINING RECORD</h1>
+            </div>
+
+            <!-- PERSONAL SECTION -->
+            <div class="section-banner">PERSONAL</div>
+            
+            <div class="content-grid">
+                <div style="flex: 1;">
+                    <table class="data-table">
+                        <tr>
+                            <td class="td-num">1.</td><td class="td-label">NAME</td><td class="td-colon">:</td>
+                            <td class="td-val" style="font-weight: bold;">ERYK WAHYU DARMAWAN</td>
+                        </tr>
+                        <tr>
+                            <td class="td-num">2.</td><td class="td-label">JOB TITTLE</td><td class="td-colon">:</td>
+                            <td class="td-val">MAINTENANCE MANAGER</td>
+                        </tr>
+                        <tr>
+                            <td class="td-num">3.</td><td class="td-label">EMPLOYEE NUMBER</td><td class="td-colon">:</td>
+                            <td class="td-val">10A015</td>
+                        </tr>
+                        <tr>
+                            <td class="td-num">4.</td><td class="td-label">PLACE & DATE OF BIRTH</td><td class="td-colon">:</td>
+                            <td class="td-val">MAGETAN, MAY 18, 1985</td>
+                        </tr>
+                        <tr>
+                            <td class="td-num">5.</td><td class="td-label">MARITAL STATUS</td><td class="td-colon">:</td>
+                            <td class="td-val">MARRIED</td>
+                        </tr>
+                        <tr>
+                            <td class="td-num">6.</td><td class="td-label">RELIGION</td><td class="td-colon">:</td>
+                            <td class="td-val">MOSLEM</td>
+                        </tr>
+                        <tr>
+                            <td class="td-num">7.</td><td class="td-label">ADDRESS</td><td class="td-colon">:</td>
+                            <td class="td-val">PERUM VILLA PAYUNG MAS, JL KP RAWA PANJANG RT 05 RW 23,<br>KEL. KAMPUNG PANJANG, KEC BOJONG GEDHE</td>
+                        </tr>
+                        <tr>
+                            <td></td><td class="td-label">CITY/COUNTRY</td><td class="td-colon">:</td>
+                            <td class="td-val">BOGOR</td>
+                        </tr>
+                        <tr>
+                            <td></td><td class="td-label">PHONE/HP</td><td class="td-colon">:</td>
+                            <td class="td-val">6281329424922</td>
+                        </tr>
+                        <tr>
+                            <td class="td-num">8.</td><td class="td-label">PASSPORT NUMBER</td><td class="td-colon">:</td>
+                            <td class="td-val">
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr><td width="48%">N/A</td><td><span style="font-weight:bold;">PLACE: </span>N/A</td></tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td><td class="td-label">DATE OF ISSUED</td><td class="td-colon">:</td>
+                            <td class="td-val">N/A</td>
+                        </tr>
+                        <tr>
+                            <td></td><td class="td-label">DATE OF EXPIRED</td><td class="td-colon">:</td>
+                            <td class="td-val">N/A</td>
+                        </tr>
+                        <tr>
+                            <td class="td-num">9.</td><td class="td-label">KTP NUMBER</td><td class="td-colon">:</td>
+                            <td class="td-val">
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr><td width="48%">3311101805850000</td><td><span style="font-weight:bold;">PLACE: </span>BOGOR</td></tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td><td class="td-label">DATE OF ISSUED</td><td class="td-colon">:</td>
+                            <td class="td-val">15-Jun-17</td>
+                        </tr>
+                        <tr>
+                            <td></td><td class="td-label">DATE OF EXPIRED</td><td class="td-colon">:</td>
+                            <td class="td-val">NO VALIDITY</td>
+                        </tr>
+                        <tr>
+                            <td class="td-num">10.</td><td class="td-label">NPWP NUMBER</td><td class="td-colon">:</td>
+                            <td class="td-val">34.381.077.6-532.000</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Photo and Phys attributes -->
+                <div class="photo-area">
+                    <div class="photo-frame">
+                        <!-- Ganti URL src img di bawah dengan URL photo employee -->
+                        <img src="https://via.placeholder.com/150x200/db2929/ffffff?text=Photo" alt="Pas Foto">
+                    </div>
+                    <table class="phys-table">
+                        <tr><td class="phys-label">BODY HEIGHT</td><td style="width: 10px;">:</td><td>165 CM</td></tr>
+                        <tr><td class="phys-label">BODY WEIGHT</td><td>:</td><td>70 KG</td></tr>
+                        <tr><td class="phys-label">BLOOD GROUP</td><td>:</td><td>O</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- WORK EXPERIENCE SECTION -->
+            <div class="section-banner">WORKING EXPERIENCES / CAREER HISTORIES</div>
+
+            <div class="work-section">
+                <table class="work-table">
+                    <tr>
+                        <td class="td-num">1.</td>
+                        <td class="td-label" style="width: 180px;">OUTSIDE Global MF</td>
+                        <td class="td-colon">:</td>
+                        <td class="td-val" style="font-weight: bold;">NIL</td>
+                        <td style="font-weight: bold; text-align: center; width: 280px;">NIL</td>
+                    </tr>
+                    <tr><td colspan="5" style="height: 50px;"></td></tr>
+                    <tr>
+                        <td class="td-num">2.</td>
+                        <td class="td-label">INSIDE Global MF</td>
+                        <td class="td-colon">:</td>
+                        <td class="td-val" style="font-weight: bold;">PT. Global Maintenance Facility</td>
+                        <td style="font-weight: bold; text-align: center;">2010-Present</td>
+                    </tr>
+                </table>
+
+                <!-- FOOTER / SIGNATURE -->
+                <div class="signature-box">
+                    <div class="sig-text">Signature of Employee</div>
+                    <div class="sig-line"></div>
+                    <div class="sig-name">Name of Employee</div>
+                    <div class="sig-date">Date :</div>
+                </div>
+                
+                <div class="footer-text">Quality Department</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

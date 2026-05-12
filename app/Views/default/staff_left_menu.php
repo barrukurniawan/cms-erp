@@ -108,6 +108,10 @@ $setup_modules = unserialize($xin_com_system['setup_modules']);
   <li class="pc-item"> <a href="<?= site_url('erp/training-sessions');?>" class="pc-link"> <span class="pc-micon"><i data-feather="target"></i></span><span class="pc-mtext">
     <?= lang('Dashboard.left_training');?>
     </span> </a> </li>
+  <!-- Training Manual -->
+  <li class="pc-item"> <a href="<?= site_url('erp/training-manual-list');?>" class="pc-link"> <span class="pc-micon"><i data-feather="book"></i></span><span class="pc-mtext">
+    Training Manual
+    </span> </a> </li>
   <?php } ?>
   <?php endif; endif;?>
   <?php if(in_array('staff2',staff_role_resource()) || in_array('shift1',staff_role_resource()) || in_array('staffexit1',staff_role_resource()) || in_array('news1',staff_role_resource()) || in_array('department1',staff_role_resource()) || in_array('designation1',staff_role_resource()) || in_array('policy1',staff_role_resource()) || in_array('accounts1',staff_role_resource()) || in_array('deposit1',staff_role_resource()) || in_array('expense1',staff_role_resource()) || in_array('dep_cat1',staff_role_resource()) || in_array('exp_cat1',staff_role_resource()) || in_array('indicator1',staff_role_resource()) || in_array('appraisal1',staff_role_resource()) || in_array('competency1',staff_role_resource()) || in_array('tracking1',staff_role_resource()) || in_array('track_type1',staff_role_resource()) || in_array('track_calendar',staff_role_resource()) || in_array('client1',staff_role_resource()) || in_array('invoice2',staff_role_resource()) || in_array('invoice_payments',staff_role_resource()) || in_array('invoice_calendar',staff_role_resource()) || in_array('tax_type1',staff_role_resource()) || in_array('training1',staff_role_resource()) || in_array('trainer1',staff_role_resource()) || in_array('training_skill1',staff_role_resource()) || in_array('training_calendar',staff_role_resource()) || in_array('disciplinary1',staff_role_resource()) || in_array('case_type1',staff_role_resource())) {?>

@@ -166,6 +166,16 @@ $routes->get('erp/training-details/(:segment)', 'Training::training_details', ['
 $routes->get('erp/training-calendar/', 'Training::training_calendar', ['namespace' => 'App\Controllers\Erp','filter' => 'checklogin']);
 // trainers
 $routes->get('erp/trainers-list/', 'Trainers::index', ['namespace' => 'App\Controllers\Erp','filter' => 'checklogin']);
+
+// training manual
+$routes->get('erp/training-manual-list/', 'Trainingmanual::index', ['namespace' => 'App\Controllers\Erp','filter' => 'checklogin']);
+$routes->get('erp/trainingmanual/training_manual_list', 'Trainingmanual::training_manual_list', ['namespace' => 'App\Controllers\Erp','filter' => 'checklogin']);
+$routes->get('erp/training-manual-add/', 'Trainingmanual::create', ['namespace' => 'App\Controllers\Erp','filter' => 'checklogin']);
+$routes->get('erp/training-manual-edit/(:segment)', 'Trainingmanual::edit/$1', ['namespace' => 'App\Controllers\Erp','filter' => 'checklogin']);
+$routes->get('erp/training-manual-print/(:segment)', 'Trainingmanual::print_manual/$1', ['namespace' => 'App\Controllers\Erp','filter' => 'checklogin']);
+$routes->post('erp/training-manual-save', 'Trainingmanual::store', ['namespace' => 'App\Controllers\Erp','filter' => 'checklogin']);
+$routes->post('erp/training-manual-update', 'Trainingmanual::update', ['namespace' => 'App\Controllers\Erp','filter' => 'checklogin']);
+$routes->post('erp/training-manual-delete', 'Trainingmanual::delete', ['namespace' => 'App\Controllers\Erp','filter' => 'checklogin']);
 // events
 $routes->get('erp/events-list/', 'Events::index', ['namespace' => 'App\Controllers\Erp','filter' => 'checklogin']);
 $routes->get('erp/events-calendar/', 'Events::events_calendar', ['namespace' => 'App\Controllers\Erp','filter' => 'checklogin']);

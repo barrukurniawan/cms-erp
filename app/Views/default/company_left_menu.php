@@ -212,6 +212,10 @@ $setup_modules = unserialize($xin_com_system['setup_modules']);
   <li class="pc-item"> <a href="<?= site_url('erp/training-sessions');?>" class="pc-link"> <span class="pc-micon"><i data-feather="target"></i></span><span class="pc-mtext">
     <?= lang('Dashboard.left_training');?>
     </span> </a> </li>
+  <!-- Training Manual -->
+  <li class="pc-item"> <a href="<?= site_url('erp/training-manual-list');?>" class="pc-link"> <span class="pc-micon"><i data-feather="book"></i></span><span class="pc-mtext">
+    Training Manual
+    </span> </a> </li>
     <?php endif; endif;?>
   <!-- Disciplinary -->
   <li class="pc-item"> <a href="<?= site_url('erp/disciplinary-cases');?>" class="pc-link"> <span class="pc-micon"><i data-feather="alert-circle"></i></span><span class="pc-mtext">
